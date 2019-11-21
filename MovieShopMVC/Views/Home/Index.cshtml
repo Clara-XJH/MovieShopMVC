@@ -4,30 +4,30 @@
     ViewBag.Title = "Home Page";
 }
 
-<table class="table">
-    <thead >
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Revenue</th>
-        <th scope="col">Date Released</th>
-    </tr>
-    </thead>
-    <tbody>
-     
-    @foreach (var movie in Model)
-    {
-        <tr>
-            <td>@movie.Id</td>
-            <td>@movie.Title</td>
-            <td>@movie.Revenue</td>
-            <td>
-                @if (movie.ReleaseDate != null)
-                {
-                    @movie.ReleaseDate.Value.ToShortDateString()
-                }
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        @{
+            var first = true;
+        }
+        @foreach (var movie in Model)
+        {
+            <div class="carousel-item @(first ? Html.Raw("active") : Html.Raw(""))">
+                <img class="d-block w-100" src="@movie.BackdropUrl" alt="@movie.Title">
+            </div>
+            first = false;
+        }
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
