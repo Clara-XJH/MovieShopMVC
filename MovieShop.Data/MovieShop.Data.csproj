@@ -48,8 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201911210202123_CompleteDatabaseSetup.cs" />
+    <Compile Include="Migrations\201911210202123_CompleteDatabaseSetup.Designer.cs">
+      <DependentUpon>201911210202123_CompleteDatabaseSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MovieShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\MovieRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MovieShop.Entities\MovieShop.Entities.csproj">
@@ -61,5 +69,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911210202123_CompleteDatabaseSetup.resx">
+      <DependentUpon>201911210202123_CompleteDatabaseSetup.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
