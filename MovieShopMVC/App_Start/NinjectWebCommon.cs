@@ -65,7 +65,11 @@ namespace MovieShopMVC.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IMovieService>().To<MovieService>();
+            kernel.Bind<IGenreService>().To<GenreService>();
+
             kernel.Bind<IMovieRepository>().To<MovieRepository>();
-        }        
+            kernel.Bind<IGenreRepository>().To<GenreRepository>();
+
+        }
     }
 }
