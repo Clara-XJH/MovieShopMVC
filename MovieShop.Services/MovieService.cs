@@ -19,10 +19,16 @@ namespace MovieShop.Services
         {
             return _movieRepository.GetTopGrossingMovies();
         }
-    }
+
+        public IEnumerable<Movie> GetMoviesByGenre(int genreId)
+        {
+            return _movieRepository.GetMoviesByGenre(genreId);
+        }
+   }
 
   public interface IMovieService
   {
       IEnumerable<Movie> GetTopGrossingMovies();
+      IEnumerable<Movie> GetMoviesByGenre(int genreId);
   }
 }

@@ -8,6 +8,7 @@ namespace MovieShop.Data
         public MovieShopDbContext()
             : base("name=MovieShopDbContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Cast> Casts { get; set; }

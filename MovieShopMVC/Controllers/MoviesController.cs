@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieShop.Services;
 
 namespace MovieShopMVC.Controllers
 {
+    [RoutePrefix("Movies")]
     public class MoviesController : Controller
     {
-        // GET: Movies
-        public ActionResult Index()
+        private readonly IMovieService _movieService;
+        public MoviesController(IMovieService movieService)
         {
-            return View();
+            _movieService = movieService;
+        }
+
+        [Route("genre/{genreId}")]
+        // GET: Movies
+        public ActionResult Genre(int genreId)
+        {
+            var movies = _movieService.GetMoviesByGenre(genreId);
+            return View(movies);
         }
     }
 }
