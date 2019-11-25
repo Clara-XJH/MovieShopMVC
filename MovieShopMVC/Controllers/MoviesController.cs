@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using MovieShop.Services;
 
 namespace MovieShopMVC.Controllers
@@ -11,6 +7,7 @@ namespace MovieShopMVC.Controllers
     public class MoviesController : Controller
     {
         private readonly IMovieService _movieService;
+
         public MoviesController(IMovieService movieService)
         {
             _movieService = movieService;
@@ -21,7 +18,7 @@ namespace MovieShopMVC.Controllers
         public ActionResult Genre(int genreId)
         {
             var movies = _movieService.GetMoviesByGenre(genreId);
-            return View(movies);
+            return View("Index", movies);
         }
     }
 }

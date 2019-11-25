@@ -9,7 +9,7 @@ namespace MovieShopMVC.Controllers
 {
     public class GenresController : Controller
     {
-        private IGenreService _genreService;
+        private readonly IGenreService _genreService;
         public GenresController(IGenreService genreService)
         {
             _genreService = genreService;
