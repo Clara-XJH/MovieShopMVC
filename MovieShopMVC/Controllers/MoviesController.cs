@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MovieShop.Entities;
 using MovieShop.Services;
 
 namespace MovieShopMVC.Controllers
@@ -14,11 +15,26 @@ namespace MovieShopMVC.Controllers
         }
 
         [Route("genre/{genreId}")]
-        // GET: Movies
         public ActionResult Genre(int genreId)
         {
             var movies = _movieService.GetMoviesByGenre(genreId);
             return View("Index", movies);
+        } 
+        
+        
+        [Route("create")]
+        public ActionResult Create()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        [Route("create")]
+        public ActionResult Create(Movie movie)
+        {
+
+            return View("Index");
         }
     }
 }

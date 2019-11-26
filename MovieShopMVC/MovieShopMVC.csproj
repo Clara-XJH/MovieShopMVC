@@ -226,6 +226,7 @@
     <Content Include="Views\Shared\GenresView.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Error\ErrorPage.cshtml" />
+    <Content Include="Views\Movies\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
