@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using MovieShop.Entities;
 using MovieShop.Services;
 
@@ -17,7 +18,7 @@ namespace MovieShopMVC.Controllers
         [Route("genre/{genreId}")]
         public ActionResult Genre(int genreId)
         {
-            var movies = _movieService.GetMoviesByGenre(genreId);
+            var movies = _movieService.GetMoviesByGenre(genreId).OrderBy(m => m.Title).ToList();
             return View("Index", movies);
         } 
         

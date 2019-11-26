@@ -17,7 +17,7 @@ namespace MovieShopMVC.Controllers
         // GET: Genres
         public PartialViewResult Index()
         {
-            return PartialView("GenresView", _genreService.GetAllGenres());
+            return PartialView("GenresView", _genreService.GetAllGenres().OrderBy(g => g.Name).ToList());
         }
     }
 }
