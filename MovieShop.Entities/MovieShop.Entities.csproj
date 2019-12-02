@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cast.cs" />
+    <Compile Include="Common\PaginatedList.cs" />
     <Compile Include="Crew.cs" />
     <Compile Include="Favorite.cs" />
     <Compile Include="Genre.cs" />
@@ -65,5 +66,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

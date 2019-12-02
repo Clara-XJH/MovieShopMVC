@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using MovieShop.Entities.Common;
 
 namespace MovieShop.Data.Repositories
 {
@@ -59,6 +60,13 @@ namespace MovieShop.Data.Repositories
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where)
         {
             return _dbSet.Where(where).ToList();
+        }
+
+        public PaginatedList<T> GetPagedData(int pageIndex, int pageSize, Func<IQueryable<T>, IOrderedQueryable<T>> orderedQuery = null,
+                                             Expression<Func<T, bool>> filter = null)
+        {
+            var pagedList = PaginatedList<T>.GetPaged(_dbSet, pageIndex, pageSize, orderedQuery, filter);
+            return pagedList;
         }
     }
 }

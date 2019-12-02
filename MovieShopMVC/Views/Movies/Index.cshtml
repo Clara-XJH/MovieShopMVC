@@ -1,11 +1,14 @@
-﻿@model IEnumerable<MovieShop.Entities.Movie>
+﻿@using X.PagedList.Mvc
+@using X.PagedList.Mvc
+@using X.PagedList.Mvc.Common
+@model X.PagedList.StaticPagedList<MovieShop.Entities.Movie>
 
 @{
     ViewBag.Title = "Home Page";
 }
 
 <table class="table">
-    <thead >
+    <thead>
     <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
@@ -14,7 +17,7 @@
     </tr>
     </thead>
     <tbody>
-     
+
     @foreach (var movie in Model)
     {
         <tr>
@@ -31,3 +34,11 @@
     }
     </tbody>
 </table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("GetMovies", new {pageIndex = page }), new PagedListRenderOptions
+                                                                     {
+                                                                         LiElementClasses = new[] {"page-item"},
+                                                                         PageClasses = new[] {"page-link"} })
+                                                                         

@@ -7,8 +7,6 @@ namespace MovieShop.Entities
     [Table("Cast")]
     public class Cast
     {
-     
-
         public int Id { get; set; }
 
         [StringLength(128)]
